@@ -1,0 +1,20 @@
+CREATE DATABASE got;
+
+CREATE TABLE characters
+(
+id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+dead VARCHAR (10),
+name VARCHAR (100) NOT NULL,
+alias VARCHAR (100),
+portrait VARCHAR (100) NOT NULL,
+picture VARCHAR (100) NOT NULL,
+bio TEXT CHARACTER SET utf8,
+organization VARCHAR (50),
+house VARCHAR (50)
+);
+
+ALTER TABLE characters ENGINE = InnoDB;
+
+importálás a "importalandoAdatok.sql szerint
+
+
