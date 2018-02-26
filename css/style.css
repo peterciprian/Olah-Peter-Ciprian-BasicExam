@@ -12,12 +12,22 @@ html {
 }
 
 .sidebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     height: 100%;
     width: 22%;
     background-color: rgb(43, 41, 44);
+}
+
+.prop,
+.bio {
+    padding: 6px;
+    text-align: justify;
+}
+
+.prop>div {
+    display: inline-block;
 }
 
 form {
@@ -32,7 +42,7 @@ input {
     border-radius: 2px;
     border: none;
     height: 25pt;
-    width: 200pt;
+    width: 180pt;
     padding: 2px;
 }
 
@@ -52,21 +62,29 @@ h1 {
     font-family: 'Cinzel', serif;
 }
 
+.name {
+    padding-left: 15%;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 22px;
+}
+
 .img {
     width: 100%;
     height: 25%;
 }
 
 .ico {
+    position: absolute;
+    right: 8px;
     width: 30px;
     height: 30px;
 }
 
 .avatar {
-    margin: 20pt;
-    float: right;
-    width: 7.8%;
-    height: 16.6%;
+    float: left;
+    width: 12.5%;
+    height: 12%;
     text-align: center;
 }
 
@@ -76,4 +94,8 @@ img:hover {
 
 .name {
     height: 30px;
+}
+
+p {
+    margin: 0px 0px 2px 0px;
 }
