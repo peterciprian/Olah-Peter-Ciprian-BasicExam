@@ -39,11 +39,11 @@ getData('/json/characters.json', successAjax);
 
 function select(taplalek) {
     var name = event.target;
-    selectCharacter(taplalek, name.id);
+    selectCharacter(taplalek, name.alt);
 }
 
 function search(taplalek) {
-    var name = document.querySelector('#search');
+    var name = document.querySelector('#search').value;
     selectCharacter(taplalek, name);
 }
 
@@ -62,9 +62,8 @@ function generate(taplalek) {
         var div = document.createElement('div');
         div.setAttribute("class", "avatar");
         div.setAttribute("id", `${taplalek[i].name}`)
-        div.innerHTML = `<img src="/${taplalek[i].portrait}" alt="${taplalek[i].name}"> <br> <p>${taplalek[i].name}</p>`;
+        div.innerHTML = `<img src="/${taplalek[i].portrait}" alt="${taplalek[i].name}"onclick="select(userDatas)"> <br> <p>${taplalek[i].name}</p>`;
         container.appendChild(div)
-        console.log(taplalek[i].name, taplalek[i].portrait);
     }
     document.querySelector('.content').appendChild(container);
 }
@@ -74,6 +73,8 @@ function selectCharacter(taplalek, name) {
     for (i in taplalek) {
         if (name == taplalek[i].name) {
             result.push(taplalek[i]);
+        } else {
+            document.querySelector('#search').value = "Character not found"
         }
     }
     loadData(result);
