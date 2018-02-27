@@ -19,9 +19,11 @@ function successAjax(xhttp) {
 
       Na azokat a függvényeket ITT HÍVD MEG! 
       */
-    loadData(userDatas[1]);
+    //document.getElementById('myButton').addEventListener("click", search(userDatas));
+    //loadData(userDatas[1]);
+    selectCharacter(userDatas, 'Benjen Stark');
     filterData(userDatas);
-    //generate(userDatas);
+    generate(userDatas);
     /*
       A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
@@ -37,10 +39,10 @@ getData('/json/characters.json', successAjax);
 //kell egy sort függvény az elejére!!
 
 
-function select(taplalek) {
-    var name = event.target;
-    selectCharacter(taplalek, name.id);
-}
+/*function select(taplalek) {
+    var name = event.target.id;
+    selectCharacter(taplalek, name);
+}*/
 
 function search(taplalek) {
     var name = document.querySelector('#search').value;
@@ -63,7 +65,7 @@ function generate(taplalek) {
         div.setAttribute("class", "avatar");
         div.setAttribute("id", `${taplalek[i].name}`)
         div.addEventListener('click', function () {
-            select(taplalek);
+            selectCharacter(taplalek, div.id);
         });
         div.innerHTML = `<img src="/${taplalek[i].portrait}" alt="${taplalek[i].name}"><p>${taplalek[i].name}</p>`;
         container.appendChild(div)
@@ -71,11 +73,13 @@ function generate(taplalek) {
     document.querySelector('.content').appendChild(container);
 }
 
-function selectCharacter(taplalek, name) {
-    var result = [];
-    for (i in taplalek) {
-        if (name == taplalek[i].name) {
-            result.push(taplalek[i]);
+function selectCharacter(taplalek, feltetel) {
+    var result;
+    for (var i in taplalek) {
+        console.log(taplalek[i].name);
+        console.log(feltetel);
+        if (feltetel === taplalek[i].name) {
+            result = taplalek[i];
         } else {
             document.querySelector('#search').value = "Character not found"
         }
