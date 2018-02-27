@@ -65,7 +65,7 @@ function generate(taplalek) {
         div.setAttribute("class", "avatar");
         div.setAttribute("id", `${taplalek[i].name}`)
         div.addEventListener('click', function () {
-            selectCharacter(taplalek, div.id);
+            selectCharacter(taplalek, this.id);
         });
         div.innerHTML = `<img src="/${taplalek[i].portrait}" alt="${taplalek[i].name}"><p>${taplalek[i].name}</p>`;
         container.appendChild(div)
