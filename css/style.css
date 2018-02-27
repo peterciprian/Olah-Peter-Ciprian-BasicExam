@@ -88,6 +88,10 @@ h1 {
     text-align: center;
 }
 
+.sidebar img:hover {
+    opacity: 1;
+}
+
 img:hover {
     opacity: 0.6;
 }
