@@ -20,10 +20,8 @@ function successAjax(xhttp) {
       Na azokat a függvényeket ITT HÍVD MEG! 
       */
     //document.getElementById('myButton').addEventListener("click", search(userDatas));
-    //loadData(userDatas[1]);
-    selectCharacter(userDatas, 'Benjen Stark');
     filterData(userDatas);
-    generate(userDatas);
+    //generate(userDatas);
     /*
       A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
@@ -38,12 +36,6 @@ getData('/json/characters.json', successAjax);
 
 //kell egy sort függvény az elejére!!
 
-
-/*function select(taplalek) {
-    var name = event.target.id;
-    selectCharacter(taplalek, name);
-}*/
-
 function search(taplalek) {
     var name = document.querySelector('#search').value;
     selectCharacter(taplalek, name);
@@ -55,6 +47,7 @@ function check(userDatas) {
 
 function filterData(userDatas) {
     var eredmeny = userDatas.filter(check);
+    eredmeny.sort((a, b) => (a.name < b.name) ? -1 : 1);
     generate(eredmeny);
 }
 
@@ -75,6 +68,7 @@ function generate(taplalek) {
 
 function selectCharacter(taplalek, feltetel) {
     var result;
+    console.log(feltetel);
     for (var i in taplalek) {
         console.log(taplalek[i].name);
         console.log(feltetel);
