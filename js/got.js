@@ -19,9 +19,10 @@ function successAjax(xhttp) {
 
       Na azokat a függvényeket ITT HÍVD MEG! 
       */
-    document.getElementById('myButton').addEventListener("click", search(userDatas));
+    document.getElementById('myButton').addEventListener("click", function () {
+        search(userDatas)
+    });
     filterData(userDatas);
-    //generate(userDatas);
     /*
       A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
@@ -42,15 +43,22 @@ function search(taplalek) {
     if (eredmeny.length < 1) {
         document.querySelector('#search').value = "Character not found"
     } else {
-        loadData(result);
+        loadData(eredmeny[0]);
     }
 }
-
 
 function srch(userDatas) {
     console.log(document.querySelector('#search').value);
     return userDatas.name == document.querySelector('#search').value;
 }
+/*function search(inputArray) {
+    var eredmenyArray = inputArray.filter(() => inputArray.name == document.getElementById('search'));
+    if (eredmenyArray.length = 1) {
+        loadData(eredmenyArray);
+    } else {
+        document.getElementById(search).value = 'Character not found';
+    }
+}*/
 
 function check(userDatas) {
     return userDatas.dead == '';

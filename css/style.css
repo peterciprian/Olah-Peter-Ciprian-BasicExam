@@ -46,14 +46,14 @@ input {
     padding: 2px;
 }
 
-button {
+#myButton {
+    display: inline-block;
     height: 25pt;
     width: 25pt;
     margin-right: 15pt;
     background-color: inherit;
-    border-color: white;
     border-radius: 2px;
-    border-width: 1px;
+    border: 1px solid white;
 }
 
 h1 {
