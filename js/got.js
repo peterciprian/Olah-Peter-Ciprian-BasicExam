@@ -19,7 +19,7 @@ function successAjax(xhttp) {
 
       Na azokat a függvényeket ITT HÍVD MEG! 
       */
-    //document.getElementById('myButton').addEventListener("click", search(userDatas));
+    document.getElementById('myButton').addEventListener("click", search(userDatas));
     filterData(userDatas);
     //generate(userDatas);
     /*
@@ -37,8 +37,19 @@ getData('/json/characters.json', successAjax);
 //kell egy sort függvény az elejére!!
 
 function search(taplalek) {
-    var name = document.querySelector('#search').value;
-    selectCharacter(taplalek, name);
+    var eredmeny = taplalek.filter(srch);
+    console.log(eredmeny);
+    if (eredmeny.length < 1) {
+        document.querySelector('#search').value = "Character not found"
+    } else {
+        loadData(result);
+    }
+}
+
+
+function srch(userDatas) {
+    console.log(document.querySelector('#search').value);
+    return userDatas.name == document.querySelector('#search').value;
 }
 
 function check(userDatas) {
@@ -74,9 +85,10 @@ function selectCharacter(taplalek, feltetel) {
         console.log(feltetel);
         if (feltetel === taplalek[i].name) {
             result = taplalek[i];
-        } else {
-            document.querySelector('#search').value = "Character not found"
         }
+        /*else {
+                   document.querySelector('#search').value = "Character not found"
+               }*/
     }
     loadData(result);
 }
