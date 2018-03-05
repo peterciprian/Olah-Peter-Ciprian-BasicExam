@@ -47,13 +47,20 @@ input {
 }
 
 #myButton {
-    display: inline-block;
+    float: left;
     height: 25pt;
     width: 25pt;
     margin-right: 15pt;
+    text-align: center;
     background-color: inherit;
     border-radius: 2px;
     border: 1px solid white;
+}
+
+i {
+    position: absolute;
+    top: 10px;
+    left: 13.5px;
 }
 
 h1 {
