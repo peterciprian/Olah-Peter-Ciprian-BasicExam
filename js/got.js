@@ -105,7 +105,7 @@ function loadData(hero) {
     document.querySelector('.img').innerHTML = `<img src="/${hero.picture}" alt="${hero.name}">`;
     document.querySelector('.name').innerHTML = `${hero.name}`;
     document.querySelector('.bio').innerHTML = `${hero.bio}`;
-    switch (hero.house) {
+    /*switch (hero.house) {
         case 'stark':
             document.querySelector('.ico').innerHTML = `<img src="/assets/houses/stark.png" alt="${hero.house}">`;
             break;
@@ -135,6 +135,8 @@ function loadData(hero) {
             break;
         default:
             document.querySelector('.ico').innerHTML = `<img src="/assets/houses/DButt.jpg" alt="potato">`;
-    }
+    }*/
+    document.querySelector('.hico').innerHTML = `<img src="/assets/houses/${hero.house}.png" alt="${hero.house}">`;
+    document.querySelector('.gico').innerHTML = `<img src="/assets/houses/${hero.organization}.png" alt="${hero.organization}">`;
 
 }

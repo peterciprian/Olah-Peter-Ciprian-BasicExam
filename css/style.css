@@ -46,6 +46,10 @@ input {
     padding: 2px;
 }
 
+input:hover {
+    background-color: silver;
+}
+
 #myButton {
     float: left;
     height: 25pt;
@@ -55,6 +59,12 @@ input {
     background-color: inherit;
     border-radius: 2px;
     border: 1px solid white;
+}
+
+#myButton:hover {
+    cursor: pointer;
+    background-color: rgb(62, 60, 63);
+    ;
 }
 
 i {
@@ -76,14 +86,16 @@ h1 {
     font-size: 22px;
 }
 
-.img {
+.avatar .img {
     width: 100%;
     height: 25%;
 }
 
-.ico {
-    position: absolute;
-    right: 8px;
+.hico,
+.gico {
+    float: right;
+    /*position: absolute;
+    right: 8px;*/
     width: 30px;
     height: 30px;
 }
@@ -93,6 +105,10 @@ h1 {
     width: 12.5%;
     height: 12%;
     text-align: center;
+}
+
+.sidebar img {
+    width: 100%;
 }
 
 .sidebar img:hover {
